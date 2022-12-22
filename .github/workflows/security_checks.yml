@@ -1,5 +1,5 @@
 
-name: PyTests
+name: SecurityChecks
 
 on:
   push:
@@ -12,16 +12,13 @@ on:
 
 jobs:
 
-  # This workflow contains a single job called "unit_tests"
-  unit_tests:
+  # This workflow contains a single job called "security_checks"
+  security_checks:
 
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     strategy:
         matrix:
-            # To run for each different python versions: so there will be 4 different run's
-            # python-version: [ "3.7", "3.8", "3.9", "3.10" ]
-
             python-version: [ "3.7" ]
 
     steps:
@@ -40,9 +37,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest
+          pip install bandit
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Test with pytest
+      - name: Find security issues
         run: |
-          pytest tests/some_tests.py
+          bandit modules/nslookup.py
