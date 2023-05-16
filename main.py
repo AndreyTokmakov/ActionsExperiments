@@ -9,3 +9,5 @@ if __name__ == '__main__':
     print(f'Release: {platform.release()}')
     print(f'System: {platform.system()}')
     print(f'Processor: {platform.processor()}')
+
+    pass
