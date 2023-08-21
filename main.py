@@ -26,6 +26,4 @@ if __name__ == '__main__':
     ram = str(round(psutil.virtual_memory().total / (1024.0 ** 3))) + " GB"
     print(f'RAM Total: {ram}')
 
-
-
     pass
