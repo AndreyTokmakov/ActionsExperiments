@@ -26,7 +26,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./testcontainers/ssh
+        working-directory: ./testcontainers
 
     steps:
       - name: Checkout code
@@ -51,4 +51,4 @@ jobs:
       # Running the SSHClient unit-tests
       - name: Test with pytest
         run: |
-          pytest test_ssh_client.py -s
+          pytest ssh/test_ssh_client.py -s

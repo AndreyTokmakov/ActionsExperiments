@@ -1,7 +1,7 @@
 import time
 
 from testcontainers.core.container import DockerContainer
-from SSHClient import SSHClient
+from modules.SSHClient import SSHClient
 
 
 class TestSSHClient:
