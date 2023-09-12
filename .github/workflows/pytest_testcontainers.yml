@@ -49,6 +49,6 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       # Running the SSHClient unit-tests
-      - name: Test with pytest
+      - name: Running the SSHClient unit-tests with TestContainers
         run: |
           pytest ssh/test_ssh_client.py -s
