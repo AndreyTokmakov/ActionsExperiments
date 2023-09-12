@@ -51,4 +51,4 @@ jobs:
       # Running the SSHClient unit-tests
       - name: Test with pytest
         run: |
-          pytest test_ssh_client.py
+          pytest test_ssh_client.py -s

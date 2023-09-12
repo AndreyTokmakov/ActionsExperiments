@@ -1,6 +1,5 @@
 import time
 
-'''
 from testcontainers.core.container import DockerContainer
 from SSHClient import SSHClient
 
@@ -93,39 +92,3 @@ class TestSSHClient:
             f"Expected number of PING's somewhere approximately in range {pings_count} - {pings_count + 1} "
         assert timeout_desired <= duration <= (timeout_desired + 1), \
             f"Expected duration somewhere approximately in range {timeout_desired} - {timeout_desired + 1}  seconds"
-'''
-
-
-
-
-
-def setup():
-    print("*** Setup ***")
-
-
-def teardown():
-    print("*** Teardown ***")
-
-
-def setup_module(module):
-    print("*** setup (Module) ***")
-
-
-def teardown_module(module):
-    print("*** teardown (Module) ***")
-
-
-def setup_function(function):
-    print("*** setup (Function) ***")
-
-
-def teardown_function(function):
-    print("*** teardown (Function) ***")
-
-
-def test_upper():
-    assert 'foo'.upper() == 'FOO'
-
-
-def test_isupper():
-    assert 'FOO'.isupper()
