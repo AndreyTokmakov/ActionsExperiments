@@ -47,7 +47,7 @@ jobs:
       - name: Generate Test Coverage report
         run: |
           cd TestCoverage
-          coverage TestCoverage/html
+          coverage html
 
       # Upload test coverage HTML reports
       - name: Upload the test coverage archive
