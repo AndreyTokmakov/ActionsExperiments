@@ -50,6 +50,7 @@ jobs:
           coverage html
           coverage xml
           genbadge coverage -i coverage.xml
+          cp coverage-badge.svg htmlcov/coverage-badge.svg
 
       # Upload test coverage HTML reports
       - name: Upload the test coverage archive
