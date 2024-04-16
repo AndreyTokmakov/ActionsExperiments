@@ -45,4 +45,14 @@ jobs:
 
       # Generate test coverage HTML reports:
       - name: Generate Test Coverage report
-        run: coverage html
+        run: |
+          cd TestCoverage
+          coverage TestCoverage/html
+
+      # Upload test coverage HTML reports
+      - name: Upload the test coverage archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-coverage
+          path: TestCoverage/htmlcov/*
+          retention-days: 10
