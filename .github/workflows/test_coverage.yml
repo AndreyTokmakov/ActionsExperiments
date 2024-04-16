@@ -59,3 +59,9 @@ jobs:
           name: test-coverage
           path: TestCoverage/htmlcov/*
           retention-days: 10
+
+      - name: Commit badge
+        env:
+          BRANCH: ${{ steps.extract_branch.outputs.branch }}
+        run: |
+          echo "${BRANCH}"
