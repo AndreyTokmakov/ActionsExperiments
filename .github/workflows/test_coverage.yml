@@ -35,7 +35,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f TestCoverage/requirements.txt ]; then pip install -r TestCoverage/requirements.txt; fi
-          pip install pytest-html genbadge
+          pip install pytest-html genbadge defusedxml
 
       # Running API Integration tests
       - name: Running API Integration tests
