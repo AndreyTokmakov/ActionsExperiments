@@ -49,6 +49,7 @@ jobs:
           cd TestCoverage
           coverage html
           coverage xml
+          genbadge coverage
 
       # Upload test coverage HTML reports
       - name: Upload the test coverage archive
