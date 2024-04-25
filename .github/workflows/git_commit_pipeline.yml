@@ -65,7 +65,14 @@ jobs:
           BRANCH: ${{ steps.extract_branch.outputs.branch }}
         run: |
           echo ${{ steps.extract_branch.outputs.branch }}
-          pwd
-          ls -l .github/artifacts/
           date > .github/artifacts/info.txt
           cat .github/artifacts/info.txt
+
+      - name: Commit changes
+        run: |
+          git config --global user.email "no-reply@github.com"
+          git config --global user.name "GitHub Actions"
+          git add .github/artifacts/info.txt
+          git commit -m "Update info.txt"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git push
