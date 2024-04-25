@@ -50,7 +50,7 @@ jobs:
           coverage html
           coverage xml
           genbadge coverage -i coverage.xml
-          cp coverage-badge.svg htmlcov/coverage-badge.svg
+
 
       # Upload test coverage HTML reports
       - name: Upload the test coverage archive
@@ -61,18 +61,13 @@ jobs:
           retention-days: 10
 
       - name: Commit badge
-        env:
-          BRANCH: ${{ steps.extract_branch.outputs.branch }}
         run: |
-          echo ${{ steps.extract_branch.outputs.branch }}
           date > .github/artifacts/info.txt
-          cat .github/artifacts/info.txt
-
-      - name: Commit changes
-        run: |
+          cp TestCoverage/htmlcov/coverage-badge.svg .github/artifacts/coverage-badge.svg
           git config --global user.email "no-reply@github.com"
           git config --global user.name "GitHub Actions"
           git add .github/artifacts/info.txt
+          git add .github/artifacts/coverage-badge.svg
           git commit -m "Update info.txt"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push
