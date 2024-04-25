@@ -63,7 +63,7 @@ jobs:
       - name: Commit badge
         run: |
           date > .github/artifacts/info.txt
-          cp TestCoverage/htmlcov/coverage-badge.svg .github/artifacts/coverage-badge.svg
+          cp TestCoverage/coverage-badge.svg .github/artifacts/coverage-badge.svg
           git config --global user.email "no-reply@github.com"
           git config --global user.name "GitHub Actions"
           git add .github/artifacts/info.txt
