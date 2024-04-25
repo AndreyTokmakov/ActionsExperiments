@@ -3,7 +3,7 @@ name: GitCommitPipeline
 
 on:
   push:
-    branches: [ "main", "develop", "test_coverage.yml" ]
+    branches: [ "main", "develop", "commit_from_pipeline" ]
   pull_request:
     branches: [ "main" ]
 
