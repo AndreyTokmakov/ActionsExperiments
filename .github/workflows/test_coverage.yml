@@ -1,0 +1,67 @@
+
+name: CI
+
+on:
+  push:
+    branches: [ "main", "develop", "test_coverage" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # test our matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+
+      # Install the test and reporting requirements
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f TestCoverage/requirements.txt ]; then pip install -r TestCoverage/requirements.txt; fi
+          pip install pytest-html genbadge defusedxml
+
+      # Running API Integration tests
+      - name: Running API Integration tests
+        run: |
+          cd TestCoverage
+          coverage run -m pytest
+
+      # Generate test coverage HTML reports:
+      - name: Generate Test Coverage report
+        run: |
+          cd TestCoverage
+          coverage html
+          coverage xml
+          genbadge coverage -i coverage.xml
+          cp coverage-badge.svg htmlcov/coverage-badge.svg
+
+      # Upload test coverage HTML reports
+      - name: Upload the test coverage archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-coverage
+          path: TestCoverage/htmlcov/*
+          retention-days: 10
+
+      - name: Commit badge
+        env:
+          BRANCH: ${{ steps.extract_branch.outputs.branch }}
+        run: |
+          echo ${{ steps.extract_branch.outputs.branch }}
