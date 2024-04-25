@@ -29,7 +29,7 @@ def test_multiply():
     assert multiply_numbers(2, 3) == 6
     assert multiply_numbers(-3, 3) == -9
 
-'''
+
 def test_divide():
     assert divide_numbers(6, 3) == 2.0
     with pytest.raises(ZeroDivisionError):
@@ -38,4 +38,3 @@ def test_divide():
 
 def test_average():
     assert average([90, 88, 99, 100]) == 94.25
-'''
