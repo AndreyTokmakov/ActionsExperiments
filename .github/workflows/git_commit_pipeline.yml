@@ -50,6 +50,7 @@ jobs:
           coverage html
           coverage xml
           genbadge coverage -i coverage.xml
+          coverage report -m > result.txt
 
 
       # Upload test coverage HTML reports
@@ -63,11 +64,14 @@ jobs:
       - name: Commit badge
         run: |
           cp TestCoverage/coverage.xml .github/artifacts/coverage.xml
+          cp TestCoverage/result.txt .github/artifacts/result.txt
           rm .github/artifacts/coverage-badge.svg
           cp TestCoverage/coverage-badge.svg .github/artifacts/coverage-badge.svg
           git config --global user.email "no-reply@github.com"
           git config --global user.name "GitHub Actions"
-          git add .github/artifacts/coverage.xml && git add .github/artifacts/coverage-badge.svg
+          git add .github/artifacts/coverage.xml
+          git add .github/artifacts/coverage-badge.svg
+          git add .github/artifacts/result.txt
           git commit -m "Update artifacts"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push
