@@ -66,7 +66,7 @@ jobs:
           cp TestCoverage/coverage-badge.svg .github/artifacts/coverage-badge.svg
           git config --global user.email "no-reply@github.com"
           git config --global user.name "GitHub Actions"
-          git add .github/artifacts/info.txt
+          git add .github/artifacts/coverage.xml
           git add .github/artifacts/coverage-badge.svg
           git commit -m "Update info.txt"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
