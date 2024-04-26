@@ -72,4 +72,4 @@ jobs:
           git commit -m "Update artifacts"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push
-          
+
