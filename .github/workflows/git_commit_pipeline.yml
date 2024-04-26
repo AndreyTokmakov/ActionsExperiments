@@ -47,8 +47,8 @@ jobs:
       - name: Generate Test Coverage report
         run: |
           cd TestCoverage
-          coverage html
-          coverage xml
+          coverage html --omit="*python*","*dist-packages*"
+          coverage xml --omit="*python*","*dist-packages*"
           genbadge coverage -i coverage.xml
           coverage report -m > result.txt
 
