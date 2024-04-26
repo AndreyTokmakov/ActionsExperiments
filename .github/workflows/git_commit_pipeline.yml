@@ -62,9 +62,9 @@ jobs:
 
       - name: Commit badge
         run: |
-          rm -f .github/artifacts/coverage-badge.svg    
-          cp TestCoverage/coverage.xml .github/artifacts/coverage.xml
-          cp TestCoverage/result.txt .github/artifacts/result.txt
+          : # rm -f .github/artifacts/coverage-badge.svg    
+          : # cp TestCoverage/coverage.xml .github/artifacts/coverage.xml
+          : # cp TestCoverage/result.txt .github/artifacts/result.txt
           cp TestCoverage/coverage-badge.svg .github/artifacts/coverage-badge.svg
           git config --global user.email "no-reply@github.com"
           git config --global user.name "GitHub Actions"
