@@ -62,7 +62,7 @@ jobs:
 
       - name: Commit badge
         run: |
-          rm .github/artifacts/coverage-badge.svg    
+          rm -f .github/artifacts/coverage-badge.svg    
           cp TestCoverage/coverage.xml .github/artifacts/coverage.xml
           cp TestCoverage/result.txt .github/artifacts/result.txt
           cp TestCoverage/coverage-badge.svg .github/artifacts/coverage-badge.svg
