@@ -41,7 +41,7 @@ jobs:
       - name: Running API Integration tests
         run: |
           cd TestCoverage
-          coverage run -m pytest
+          coverage run --omit=/usr/lib/python3/dist-packages -m pytest
 
       # Generate test coverage HTML reports:
       - name: Generate Test Coverage report
