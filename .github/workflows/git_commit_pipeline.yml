@@ -65,6 +65,8 @@ jobs:
           : # rm -f .github/artifacts/coverage-badge.svg    
           : # cp TestCoverage/coverage.xml .github/artifacts/coverage.xml
           : # cp TestCoverage/result.txt .github/artifacts/result.txt
+          echo ${{ github.repository }}
+          echo ${{ github.repository_owner }}
           mv TestCoverage/coverage-badge.svg .github/artifacts/coverage-badge.svg
           git config --global user.email "no-reply@github.com"
           git config --global user.name "GitHub Actions"
