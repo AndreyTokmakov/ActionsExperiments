@@ -70,7 +70,7 @@ jobs:
 
           git config --global user.email "no-reply@github.com"
           git config --global user.name "GitHub Actions"
-          git add .github/artifacts/coverage-badge.svg
+          git add .github/artifacts/coverage-badge1.svg
           git add .github/artifacts/result.txt
 
           git commit -m "Update artifacts"
