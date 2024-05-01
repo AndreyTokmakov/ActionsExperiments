@@ -49,7 +49,7 @@ jobs:
           cd TestCoverage
           coverage html
           coverage xml
-          genbadge coverage -i coverage.xml -o ../.github/artifacts/coverage-badge.svg
+          genbadge coverage -i coverage.xml -o ../.github/artifacts/coverage-badge1.svg
           coverage report -m > ../.github/artifacts/result.txt
           ls -l coverage-badge.svg
 
