@@ -49,9 +49,10 @@ jobs:
           cd TestCoverage
           coverage html
           coverage xml
-          genbadge coverage -i coverage.xml -o ../.github/artifacts/coverage-badge1.svg
-          coverage report -m > ../.github/artifacts/result.txt
-          ls -l coverage-badge.svg
+          genbadge coverage -i coverage.xml -o ../.github/artifacts/badge.svg
+          
+          : # coverage report -m > ../.github/artifacts/result.txt
+          : # ls -l coverage-badge.svg
 
       # Upload test coverage HTML reports
       - name: Upload the test coverage archive
@@ -70,8 +71,8 @@ jobs:
 
           git config --global user.email "no-reply@github.com"
           git config --global user.name "GitHub Actions"
-          git add .github/artifacts/coverage-badge1.svg
-          git add .github/artifacts/result.txt
+          git add .github/artifacts/badge.svg
+          : # git add .github/artifacts/result.txt
 
           git commit -m "Update artifacts"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
