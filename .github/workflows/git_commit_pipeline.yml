@@ -49,7 +49,7 @@ jobs:
           cd TestCoverage
           coverage html
           coverage xml
-          genbadge coverage -i coverage.xml
+          genbadge coverage -i coverage.xml -o ../.github/artifacts/coverage-badge.svg
           coverage report -m > ../.github/artifacts/result.txt
           ls -l coverage-badge.svg
 
@@ -65,18 +65,8 @@ jobs:
         run: |
           : # cp TestCoverage/coverage.xml .github/artifacts/coverage.xml
           : # cp TestCoverage/result.txt .github/artifacts/result.txt
-          
-          echo ${{ github.repository }}
-          echo ${{ github.repository_owner }}
-          
-          git status
-          ls -l .github/artifacts/coverage-badge.svg
-
-          rm -f .github/artifacts/coverage-badge.svg
-          mv TestCoverage/coverage-badge.svg .github/artifacts/coverage-badge.svg
-          
-          git status
-          ls -l .github/artifacts/coverage-badge.svg
+          : # echo ${{ github.repository }}
+          : # echo ${{ github.repository_owner }}
 
           git config --global user.email "no-reply@github.com"
           git config --global user.name "GitHub Actions"
