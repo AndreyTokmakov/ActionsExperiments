@@ -7,3 +7,6 @@ class Calculator(object):
 
     def info(self):
         print('INFO')
+
+    def minus(self, a: int, b: int) -> int:
+        return a - b
