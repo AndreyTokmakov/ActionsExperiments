@@ -10,3 +10,6 @@ class Calculator(object):
 
     def minus(self, a: int, b: int) -> int:
         return a - b
+
+    def minus2(self, a: int, b: int) -> int:
+        return a - b
